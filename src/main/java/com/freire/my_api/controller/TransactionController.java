@@ -33,7 +33,7 @@ public class TransactionController {
         transactionService.DeleteById(id);
     }
     
-    @GetMapping("/getById")
+    @GetMapping("/{id}")
     public void GetById(String id){
         transactionService.GetById(id);
     }

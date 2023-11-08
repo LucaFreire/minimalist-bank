@@ -34,4 +34,12 @@ public class UserModel {
     public UserModel(String id) {
         this.id = id;
     }
+
+    public void AddMoney(Double money) {
+        this.balance += money;
+    }
+
+    public void SubtractMoney(Double money) {
+        this.balance -= money;
+    }
 }
