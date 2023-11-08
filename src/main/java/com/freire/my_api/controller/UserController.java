@@ -28,6 +28,11 @@ public class UserController {
         return userService.GetAll();
     }
 
+    @PostMapping("/register")
+    public void Register(@RequestBody UserModel userModel) {
+        userService.Save(userModel);
+    }
+
     @GetMapping("/{email}")
     public UserModel GetByName(@PathVariable String email) {
         return userService.FindByEmail(email);
@@ -41,10 +46,5 @@ public class UserController {
     @GetMapping("/{id}")
     public Optional<UserModel> GetById(@PathVariable String id) {
         return userService.GetById(id);
-    }
-
-    @PostMapping("/register")
-    public void Register(@RequestBody UserModel userModel) {
-        userService.Save(userModel);
     }
 }
