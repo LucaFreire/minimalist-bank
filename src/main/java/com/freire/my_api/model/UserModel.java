@@ -8,8 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 @AllArgsConstructor
@@ -31,5 +29,9 @@ public class UserModel {
         this.document = document;
         this.age = age;
         this.birthDate = birthDate;
+    }
+
+    public UserModel(String id) {
+        this.id = id;
     }
 }
