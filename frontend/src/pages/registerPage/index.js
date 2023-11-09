@@ -1,6 +1,6 @@
 import { Button, View, TextInput } from "react-native";
-import { useCallback } from "react";
-
+import { useCallback, useState } from "react";
+import style from "./style";
 
 export default function registerPage(props) {
 
@@ -37,7 +37,6 @@ export default function registerPage(props) {
                 <Text>Email</Text>
                 <TextInput
                     onChangeText={e => setEmail(e)}
-                    style={styles.input}
                 />
             </View>
 
