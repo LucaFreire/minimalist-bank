@@ -3,8 +3,6 @@ package com.freire.my_api.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +20,7 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
 
     @GetMapping("")
     public List<UserModel> GetAll() {
