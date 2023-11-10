@@ -16,7 +16,7 @@ export default function App() {
           <Stack.Screen
             options={{
               headerTransparent: true,
-              headerShown: true
+              headerShown: false
             }}
             name='login' component={loginPage}
           />
@@ -24,7 +24,7 @@ export default function App() {
           <Stack.Screen
             options={{
               headerTransparent: true,
-              headerShown: true
+              headerShown: false
             }}
             name='register' component={registerPage}
           />

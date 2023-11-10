@@ -1,4 +1,4 @@
-import { TextInput, TouchableOpacity, Button, View, Text } from "react-native"
+import { TextInput, TouchableOpacity, View, Text, Pressable } from "react-native"
 import { useCallback, useState } from "react"
 
 import styles from "./style"
@@ -26,34 +26,34 @@ export default function loginPage(props) {
         }
     })
 
-    return (<View>
-        <View>
-            <Text>Email</Text>
+    return (
+        <View style={styles.main}>
+
+            <Text style={styles.label}>Email</Text>
             <TextInput
                 onChangeText={e => setEmail(e)}
                 style={styles.input}
                 value={email}
             />
-        </View>
 
-        <View>
-            <Text>Password</Text>
+            <Text style={styles.label}>Password</Text>
             <TextInput
                 onChangeText={e => setPassword(e)}
                 style={styles.input}
                 value={password}
                 secureTextEntry={true}
             />
-        </View>
 
-        <TouchableOpacity onPress={() => props.navigation.navigate('register')}>
-            <Text>Create Account</Text>
-        </TouchableOpacity>
+            <View style={styles.headerContent}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('register')}>
+                    <Text style={styles.linkButton}>Create Account</Text>
+                </TouchableOpacity>
 
-        <Button
-            onPress={() => handleLogin()}
-            title="Sign In"
-        />
+                <Pressable style={styles.button} onPress={() => handleLogin()}>
+                    <Text style={styles.text}>Sign In</Text>
+                </Pressable>
+            </View>
 
-    </View>)
+        </View >
+    )
 }
