@@ -19,5 +19,4 @@ public class UserDTO {
         this.document = document;
         this.email = email;
     }
-
 }
