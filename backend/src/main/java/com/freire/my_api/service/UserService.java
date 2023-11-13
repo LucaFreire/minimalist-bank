@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
 import com.freire.my_api.model.UserModel;
 import com.freire.my_api.repository.UserRepository;
 
@@ -16,6 +17,10 @@ public class UserService {
     private UserRepository userRepository;
 
     public UserModel Save(UserModel userModel) {
+        return this.userRepository.save(userModel);
+    }
+
+    public UserModel Update(UserModel userModel) {
         return this.userRepository.save(userModel);
     }
 

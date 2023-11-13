@@ -31,7 +31,7 @@ public class TransactionController {
     public List<TransactionModel> GetAll() {
         return transactionService.GetAll();
     }
-    
+
     @PostMapping("/transaction")
     public void Transaction(TransactionDTO transactionDTO) {
 
@@ -50,8 +50,11 @@ public class TransactionController {
         payee.AddMoney(transactionValue);
         payer.SubtractMoney(transactionValue);
 
+        
         TransactionModel transactionModel = new TransactionModel(payee, payer);
-
+        
+        userService.Update(payee);
+        userService.Update(payer);
         transactionService.Save(transactionModel);
     }
 
