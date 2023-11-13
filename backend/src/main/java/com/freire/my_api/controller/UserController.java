@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freire.my_api.DTO.UserDTO;
 import com.freire.my_api.model.UserModel;
 import com.freire.my_api.service.UserService;
 
@@ -28,7 +29,9 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public void Register(@RequestBody UserModel userModel) {
+    public void Register(@RequestBody UserDTO userDTO) {
+
+        UserModel userModel = new UserModel(userDTO);
         userService.Save(userModel);
     }
 

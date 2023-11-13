@@ -31,7 +31,7 @@ public class TransactionController {
     public List<TransactionModel> GetAll() {
         return transactionService.GetAll();
     }
-
+    
     @PostMapping("/transaction")
     public void Transaction(TransactionDTO transactionDTO) {
 

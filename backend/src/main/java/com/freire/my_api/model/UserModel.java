@@ -6,6 +6,8 @@ import java.sql.Date;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.freire.my_api.DTO.UserDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -19,16 +21,24 @@ public class UserModel {
     private String name;
     private String email;
     private String document;
-    private short age;
     private Double balance = 0d;
     private Date birthDate;
+    private String password;
 
-    public UserModel(String name, String email, String document, short age, BigDecimal balance, Date birthDate) {
+    public UserModel(String name, String password, String email, String document, BigDecimal balance, Date birthDate) {
         this.name = name;
         this.email = email;
         this.document = document;
-        this.age = age;
+        this.password = password;
         this.birthDate = birthDate;
+    }
+
+    public UserModel(UserDTO userDTO){
+        this.name = userDTO.getFullName();
+        this.password = userDTO.getPassword();
+        this.birthDate = userDTO.getBirthDate();
+        this.email = userDTO.getEmail();
+        this.document = userDTO.getDocument();
     }
 
     public UserModel(String id) {
