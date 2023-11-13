@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         padding: 10,
+        color: 'white'
     },
     label: {
         paddingTop: "15px",
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     linkButton: {
-        paddingLeft: '8px',
+        paddingLeft: '9px',
         width: 'auto',
         color: "purple",
         alignItems: 'center',

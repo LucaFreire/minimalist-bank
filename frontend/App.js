@@ -20,7 +20,6 @@ export default function App() {
             }}
             name='login' component={loginPage}
           />
-
           <Stack.Screen
             options={{
               headerTransparent: true,
@@ -28,6 +27,7 @@ export default function App() {
             }}
             name='register' component={registerPage}
           />
+
 
         </Stack.Navigator>
       </NavigationContainer>

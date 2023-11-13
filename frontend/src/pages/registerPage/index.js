@@ -1,27 +1,32 @@
-import { Button, View, TextInput } from "react-native";
+import { Button, View, TextInput, Text, Pressable } from "react-native";
 import { useCallback, useState } from "react";
 import style from "./style";
+import axios from "axios";
 
 export default function registerPage(props) {
 
     const [email, setEmail] = useState();
     const [fullName, setFullName] = useState();
     const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
     const [document, setDocument] = useState();
 
+    const [birthDate, setBirthDate] = useState();
+
     const handleRegister = useCallback(async () => {
-        if (!email || !fullName || !password || !CPF)
+        if (!email || !fullName || !password || !document)
             return;
 
         const registerData = {
             fullName: fullName,
+            birthDate: birthDate,
             password: password,
             document: document,
             email: email,
         }
 
         try {
-            const res = await axios.post("http://localhost:3030/user/register/", registerData);
+            const res = await axios.post("http://localhost:8080/user/register", registerData);
             props.navigation.navigate('login')
             console.log(res);
         } catch (error) {
@@ -30,47 +35,48 @@ export default function registerPage(props) {
     })
 
     return (
-        <View>
-            <Text>Register</Text>
+        <View style={style.main}>
+            <Text style={style.text}>Email</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setEmail(e)}
+            />
 
-            <View>
-                <Text>Email</Text>
-                <TextInput
-                    onChangeText={e => setEmail(e)}
-                />
-            </View>
+            <Text style={style.text}>Full Name</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setFullName(e)}
+            />
 
-            <View>
-                <Text>Full Name</Text>
-                <TextInput
-                    onChangeText={e => setFullName(e)}
-                />
-            </View>
+            <Text style={style.text}>Document</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setDocument(e)}
+            />
 
-            <View>
-                <Text>Document</Text>
-                <TextInput
-                    onChangeText={e => setDocument(e)}
-                />
-            </View>
+            <Text style={style.text}>BirthDate</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setBirthDate(e)}
+            />
 
-            <View>
-                <Text>Password</Text>
-                <TextInput
-                    onChangeText={e => setPassword(e)}
-                    secureTextEntry={true}
-                />
-            </View>
+            <Text style={style.text}>Password</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setPassword(e)}
+                secureTextEntry={true}
+            />
 
-            <View>
-                <Button
-                    onPress={() => handleRegister()}
-                    title="Sing in"
-                    color="#006EE4" />
-            </View>
+            <Text style={style.text}>Confirm Password</Text>
+            <TextInput
+                style={style.input}
+                onChangeText={e => setConfirmPassword(e)}
+                secureTextEntry={true}
+            />
+
+            <Pressable onPress={() => handleRegister()} style={style.signInButton}>
+                <Text style={style.text}>Sign In</Text>
+            </Pressable>
         </View>
     )
-
-
-
 }
