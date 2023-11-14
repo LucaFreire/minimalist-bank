@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react"
 import HeaderHome from "../../components/headerHome"
 
 import styles from "./style"
+import CurrencyData from "../../components/currencyData"
 
 export default function homePage(props) {
 
@@ -33,6 +34,7 @@ export default function homePage(props) {
     return (
         <View style={styles.main}>
             <HeaderHome name={"Lucas"} />
+            <CurrencyData user={"200"} />
         </View>
     )
 }

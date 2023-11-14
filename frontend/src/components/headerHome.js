@@ -7,8 +7,8 @@ export default function HeaderHome({ name }) {
             <View style={{justifyContent: "center"}}>
                 <Text style={styles.headerText}>Welcome, {name}</Text>
             </View>
-            <View>
-                <Text>0</Text>
+            <View style={{justifyContent: "center", padding: "20px"}}>
+                <Text>Logout</Text>
             </View>
         </View>
     )
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         marginTop: "10px",
         height: "70px",
-        width: 350,
+        width: "94%",
         borderRadius: '15px',
         backgroundColor: 'gray',
     },
