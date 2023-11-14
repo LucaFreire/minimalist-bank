@@ -10,7 +10,7 @@ export default function BalanceComponent({ user }) {
         setShow(!show)
     }
 
-    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(user)
+    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency:"BRL" }).format(user)
 
     return (
         <View style={styles.main}>
@@ -24,11 +24,9 @@ export default function BalanceComponent({ user }) {
                     </Pressable>
                 </View>
             </View>
-
-            <View style={{width: '100%', justifyContent: "center", alignItems: "center"}}>
+            <View style={{ width: '100%', justifyContent: "center", alignItems: "center" }}>
                 <Text style={styles.currencyText}>{show ? money : "* * *"}</Text>
             </View>
-
         </View>
     )
 }
