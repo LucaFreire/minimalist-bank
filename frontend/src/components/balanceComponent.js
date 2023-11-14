@@ -19,7 +19,7 @@ export default function BalanceComponent({ user }) {
                     <Text style={styles.headerText}>Your current balance: R$</Text>
                 </View>
                 <View>
-                    <Pressable onPress={toggleShow}>
+                    <Pressable style={{backgroundColor: "gray"}} onPress={toggleShow}>
                         <Text style={styles.headerText}>{show ? "Hide" : "Show"}</Text>
                     </Pressable>
                 </View>
