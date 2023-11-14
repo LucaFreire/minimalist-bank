@@ -1,9 +1,9 @@
 import { TextInput, TouchableOpacity, View, Text, Pressable } from "react-native"
 import { useCallback, useEffect, useState } from "react"
 import HeaderHome from "../../components/headerHome"
+import CurrencyData from "../../components/balanceComponent"
 
 import styles from "./style"
-import CurrencyData from "../../components/currencyData"
 
 export default function homePage(props) {
 
@@ -34,7 +34,17 @@ export default function homePage(props) {
     return (
         <View style={styles.main}>
             <HeaderHome name={"Lucas"} />
-            <CurrencyData user={"200"} />
+            <CurrencyData user={"20000000"} />
+
+            <View style={styles.buttonsSection}>
+                <Pressable>
+                    <Text>Historic</Text>
+                </Pressable>
+                <Pressable>
+                    <Text>Transfer</Text>
+                </Pressable>
+            </View>
+
         </View>
     )
 }
