@@ -37,10 +37,10 @@ export default function homePage(props) {
             <CurrencyData user={"20000000"} />
 
             <View style={styles.buttonsSection}>
-                <Pressable style={styles.buttons} onPress={props.navigation.navigate('historic')}>
+                <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
                     <Text>Historic</Text>
                 </Pressable>
-                <Pressable style={styles.buttons} onPress={props.navigation.navigate('transfer')}>
+                <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('transfer')}>
                     <Text>Transfer</Text>
                 </Pressable>
             </View>
