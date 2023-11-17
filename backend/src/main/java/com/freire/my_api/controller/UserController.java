@@ -22,7 +22,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     @GetMapping("")
     public List<UserModel> GetAll() {
         return userService.GetAll();

@@ -21,6 +21,14 @@ export default function App() {
               headerTransparent: true,
               headerShown: false
             }}
+            name='transfer' component={transferPage}
+          />
+          
+          <Stack.Screen
+            options={{
+              headerTransparent: true,
+              headerShown: false
+            }}
             name='historic' component={historicPage}
           />
           <Stack.Screen
@@ -30,14 +38,14 @@ export default function App() {
             }}
             name='home' component={homePage}
           />
-          
-            <Stack.Screen
-              options={{
-                headerTransparent: true,
-                headerShown: false
-              }}
-              name='login' component={loginPage}
-            />
+
+          <Stack.Screen
+            options={{
+              headerTransparent: true,
+              headerShown: false
+            }}
+            name='login' component={loginPage}
+          />
 
           <Stack.Screen
             options={{
@@ -48,13 +56,6 @@ export default function App() {
           />
 
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='transfer' component={transferPage}
-          />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
@@ -64,9 +65,9 @@ export default function App() {
 
 
 const styles = StyleSheet.create({
-    main: {
-        flex: 1,
-        height: "100%",
-        backgroundColor: '#251336'
-    }
+  main: {
+    flex: 1,
+    height: "100%",
+    backgroundColor: '#251336'
+  }
 });

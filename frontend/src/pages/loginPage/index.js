@@ -10,6 +10,7 @@ export default function loginPage(props) {
     const [password, setPassword] = useState()
 
     const handleLogin = useCallback(async () => {
+
         if (!email || !password)
             return;
 
@@ -20,6 +21,7 @@ export default function loginPage(props) {
 
         try {
             const res = await axios.post("http://localhost:3030/user/login/", loginData);
+            sessionStorage.setItem("token", res.data);
             props.navigation.navigate('home')
             console.log(res);
         } catch (error) {
