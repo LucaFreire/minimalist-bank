@@ -2,6 +2,7 @@ package com.freire.my_api.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,10 +23,12 @@ public class UserModel {
     private String email;
     private String document;
     private Double balance = 0d;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String password;
 
-    public UserModel(String name, String password, String email, String document, BigDecimal balance, Date birthDate) {
+    public UserModel() {}
+
+    public UserModel(String name, String password, String email, String document, BigDecimal balance, LocalDate birthDate) {
         this.name = name;
         this.email = email;
         this.document = document;

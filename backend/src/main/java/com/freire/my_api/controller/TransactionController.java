@@ -1,10 +1,6 @@
 package com.freire.my_api.controller;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
-
-import org.bson.types.Decimal128;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,9 +38,9 @@ public class TransactionController {
         String payeeData = transactionDTO.getPayeeAnyIdentifier();
 
         if (payeeData.contains("@")) {
-            payee = userService.FindByEmail(payeeData);
+            payee = userService.FindByEmail(payeeData).get();
         } else {
-            payee = userService.FindByDocument(payeeData);
+            payee = userService.FindByDocument(payeeData).get();
         }
 
         payee.AddMoney(transactionValue);

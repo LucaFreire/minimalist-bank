@@ -22,7 +22,7 @@ export default function transferPage(props) {
         };
 
         try {
-            const res = (await axios.post("", transactionDTO)).data;
+            const res = (await axios.post("http://localhost:8080/transaction/transaction", transactionDTO)).data;
             props.navigation.navigate("home")
         } catch (error) {
             isRequestDone(false)

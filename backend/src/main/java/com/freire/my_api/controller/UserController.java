@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.freire.my_api.DTO.LoginDTO;
 import com.freire.my_api.DTO.UserDTO;
 import com.freire.my_api.model.UserModel;
 import com.freire.my_api.service.UserService;
@@ -35,17 +36,22 @@ public class UserController {
     }
 
     @GetMapping("/{email}")
-    public UserModel GetByName(@PathVariable String email) {
+    public Optional<UserModel> GetByName(@PathVariable String email) {
         return userService.FindByEmail(email);
     }
 
     @GetMapping("/{document}")
-    public UserModel GetByDocument(@PathVariable String document) {
+    public Optional<UserModel> GetByDocument(@PathVariable String document) {
         return userService.FindByDocument(document);
     }
 
     @GetMapping("/{id}")
     public Optional<UserModel> GetById(@PathVariable String id) {
         return userService.GetById(id);
+    }
+
+    @PostMapping("/login")
+    public String Login(@RequestBody LoginDTO loginDTO) {
+        return userService.Login(loginDTO);
     }
 }

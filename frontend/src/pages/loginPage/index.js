@@ -20,10 +20,9 @@ export default function loginPage(props) {
         }
 
         try {
-            const res = await axios.post("http://localhost:3030/user/login/", loginData);
+            const res = await axios.post("http://localhost:8080/user/login", loginData);
             sessionStorage.setItem("token", res.data);
-            props.navigation.navigate('home')
-            console.log(res);
+            props.navigation.navigate('home');
         } catch (error) {
             console.log(error);
         }

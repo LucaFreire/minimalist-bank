@@ -21,16 +21,17 @@ export default function App() {
               headerTransparent: true,
               headerShown: false
             }}
-            name='transfer' component={transferPage}
+            name='login' component={loginPage}
           />
-          
+
           <Stack.Screen
             options={{
               headerTransparent: true,
               headerShown: false
             }}
-            name='historic' component={historicPage}
+            name='register' component={registerPage}
           />
+
           <Stack.Screen
             options={{
               headerTransparent: true,
@@ -44,7 +45,7 @@ export default function App() {
               headerTransparent: true,
               headerShown: false
             }}
-            name='login' component={loginPage}
+            name='transfer' component={transferPage}
           />
 
           <Stack.Screen
@@ -52,17 +53,13 @@ export default function App() {
               headerTransparent: true,
               headerShown: false
             }}
-            name='register' component={registerPage}
+            name='historic' component={historicPage}
           />
-
-
         </Stack.Navigator>
       </NavigationContainer>
     </View>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   main: {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.json.UTF8StreamJsonParser;
+import com.freire.my_api.DTO.LoginDTO;
 import com.freire.my_api.model.UserModel;
 import com.freire.my_api.repository.UserRepository;
 
@@ -28,12 +29,21 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public UserModel FindByEmail(String email) {
+    public Optional<UserModel> FindByEmail(String email) {
         return this.userRepository.FindByEmail(email);
     }
 
-    public UserModel FindByDocument(String document) {
+    public Optional<UserModel> FindByDocument(String document) {
         return this.userRepository.FindByDocument(document);
+    }
+
+    public String Login(LoginDTO loginDTO) {
+
+        Optional<UserModel> loginData = this.userRepository.FindByEmail(loginDTO.getEmail());
+
+        if (loginData.isPresent())
+            return loginData.get().getId();
+        throw new IllegalAccessError();
     }
 
     public void DeleteById(String id) {
@@ -47,7 +57,4 @@ public class UserService {
 
         return this.userRepository.findById(id);
     }
-
-    
-
 }
