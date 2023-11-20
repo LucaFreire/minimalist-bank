@@ -51,7 +51,6 @@ public class UserService {
     }
 
     public Optional<UserModel> GetById(String id) {
-
         if (id == null)
             throw new IllegalArgumentException();
 

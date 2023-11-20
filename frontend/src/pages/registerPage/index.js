@@ -1,4 +1,4 @@
-import { Button, View, TextInput, Text, Pressable } from "react-native";
+import { Button, View, TextInput, Text, Pressable, TouchableOpacity, Image } from "react-native";
 import { useCallback, useState } from "react";
 import style from "./style";
 import axios from "axios";
@@ -36,47 +36,53 @@ export default function registerPage(props) {
 
     return (
         <View style={style.main}>
-            <Text style={style.text}>Email</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setEmail(e)}
-            />
+            <TouchableOpacity onPress={() => props.navigation.navigate('login')}>
+                <Image source={require("../../../assets/arrow.png")} style={style.arrowStyle} />
+            </TouchableOpacity>
+            <View style={style.inputContent}>
 
-            <Text style={style.text}>Full Name</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setFullName(e)}
-            />
+                <Text style={style.text}>Email</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setEmail(e)}
+                />
 
-            <Text style={style.text}>Document</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setDocument(e)}
-            />
+                <Text style={style.text}>Full Name</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setFullName(e)}
+                />
 
-            <Text style={style.text}>BirthDate</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setBirthDate(e)}
-            />
+                <Text style={style.text}>Document</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setDocument(e)}
+                />
 
-            <Text style={style.text}>Password</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setPassword(e)}
-                secureTextEntry={true}
-            />
+                <Text style={style.text}>BirthDate</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setBirthDate(e)}
+                />
 
-            <Text style={style.text}>Confirm Password</Text>
-            <TextInput
-                style={style.input}
-                onChangeText={e => setConfirmPassword(e)}
-                secureTextEntry={true}
-            />
+                <Text style={style.text}>Password</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setPassword(e)}
+                    secureTextEntry={true}
+                />
 
-            <Pressable onPress={() => handleRegister()} style={style.signInButton}>
-                <Text style={style.text}>Sign In</Text>
-            </Pressable>
+                <Text style={style.text}>Confirm Password</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setConfirmPassword(e)}
+                    secureTextEntry={true}
+                />
+
+                <Pressable onPress={() => handleRegister()} style={style.signInButton}>
+                    <Text style={style.text}>Sign In</Text>
+                </Pressable>
+            </View>
         </View>
     )
 }

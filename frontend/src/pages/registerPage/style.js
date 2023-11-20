@@ -2,6 +2,9 @@ import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
     main: {
+        backgroundColor: '#251336'
+    },
+    inputContent: {
         display: "flex",
         justifyContent: "center",
         alignItems: 'center',
@@ -13,12 +16,19 @@ const style = StyleSheet.create({
     signInButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: "100px",
+        marginTop: "50px",
         paddingVertical: 12,
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
         backgroundColor: 'purple',
+    },
+    arrowStyle: {
+        height: "15px",
+        width: "10px",
+        padding: "18px",
+        left: '20px',
+        top: '5px'
     },
     text: {
         fontSize: 16,

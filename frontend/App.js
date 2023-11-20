@@ -6,58 +6,62 @@ import registerPage from './src/pages/registerPage';
 import homePage from './src/pages/homePage';
 import historicPage from './src/pages/historicPage';
 import transferPage from './src/pages/transferPage';
+import { Provider } from 'react-redux';
+import { store } from "./src/store"
 
 
 export default function App() {
   const Stack = createStackNavigator();
 
   return (
-    <View style={styles.main}>
-      <NavigationContainer>
-        <Stack.Navigator>
+    <Provider store={store}>
+      <View style={styles.main}>
+        <NavigationContainer>
+          <Stack.Navigator>
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='login' component={loginPage}
-          />
+            <Stack.Screen
+              options={{
+                headerTransparent: true,
+                headerShown: false
+              }}
+              name='login' component={loginPage}
+            />
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='register' component={registerPage}
-          />
+            <Stack.Screen
+              options={{
+                headerTransparent: true,
+                headerShown: false
+              }}
+              name='register' component={registerPage}
+            />
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='home' component={homePage}
-          />
+            <Stack.Screen
+              options={{
+                headerTransparent: true,
+                headerShown: false
+              }}
+              name='home' component={homePage}
+            />
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='transfer' component={transferPage}
-          />
+            <Stack.Screen
+              options={{
+                headerTransparent: true,
+                headerShown: false
+              }}
+              name='transfer' component={transferPage}
+            />
 
-          <Stack.Screen
-            options={{
-              headerTransparent: true,
-              headerShown: false
-            }}
-            name='historic' component={historicPage}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </View>
+            <Stack.Screen
+              options={{
+                headerTransparent: true,
+                headerShown: false
+              }}
+              name='historic' component={historicPage}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </Provider>
   );
 }
 
