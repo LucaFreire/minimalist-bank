@@ -1,6 +1,9 @@
 package com.freire.my_api.controller;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.freire.my_api.DTO.TransactionDTO;
 import com.freire.my_api.model.TransactionModel;
 import com.freire.my_api.model.UserModel;
+import com.freire.my_api.service.AuthService;
 import com.freire.my_api.service.TransactionService;
 import com.freire.my_api.service.UserService;
 
@@ -22,6 +26,9 @@ public class TransactionController {
 
     @Autowired
     private UserService userService;
+    
+    @Autowired
+    private AuthService authService;
 
     @GetMapping("")
     public List<TransactionModel> GetAll() {
@@ -29,27 +36,35 @@ public class TransactionController {
     }
 
     @PostMapping("/transaction")
-    public void Transaction(TransactionDTO transactionDTO) {
+    public void Transaction(TransactionDTO transactionDTO) throws IOException {
 
-        UserModel payer = userService.GetById(transactionDTO.getPayerID()).get();
-        UserModel payee;
+        var email = authService.validateToken(transactionDTO.getToken());
+        
+        if(email.isBlank())
+            throw new IOException("token is not valid");
+        
+        UserModel payer = userService.FindByEmail(email).get();
+        
+        Optional<UserModel> payee;
         Double transactionValue = transactionDTO.getValue(); 
 
         String payeeData = transactionDTO.getPayeeAnyIdentifier();
 
         if (payeeData.contains("@")) {
-            payee = userService.FindByEmail(payeeData).get();
+            payee = userService.FindByEmail(payeeData);
         } else {
-            payee = userService.FindByDocument(payeeData).get();
+            payee = userService.FindByDocument(payeeData);
         }
 
-        payee.AddMoney(transactionValue);
-        payer.SubtractMoney(transactionValue);
+        if(!payee.isPresent())
+            throw new IOException("payee's email or document is not valid");
 
+        payee.get().AddMoney(transactionValue);
+        payer.SubtractMoney(transactionValue);
         
-        TransactionModel transactionModel = new TransactionModel(payee, payer);
+        TransactionModel transactionModel = new TransactionModel(payee.get(), payer);
         
-        userService.Update(payee);
+        userService.Update(payee.get());
         userService.Update(payer);
         transactionService.Save(transactionModel);
     }

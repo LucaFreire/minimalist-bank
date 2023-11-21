@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class TransactionDTO {
-    String payerID;
+    String token;
     String payeeAnyIdentifier;
     Double value;
 }
