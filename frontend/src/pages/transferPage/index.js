@@ -10,13 +10,13 @@ export default function transferPage(props) {
     const [payee, setPayee] = useState();
     const [isRequestDone, setIsRequestDone] = useState()
     const [requestError, setRequestError] = useState('')
-    
-    const userData = sessionStorage.getItem("token")
+
+    const userToken = sessionStorage.getItem("token")
 
     const handleTransaction = useCallback(async () => {
 
         transactionDTO = {
-            payerID: userData,
+            token: userToken,
             payeeAnyIdentifier: payee,
             value: value
         };

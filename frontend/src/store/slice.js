@@ -11,6 +11,13 @@ const handleGetUserData = useCallback(async () => {
     const userID = sessionStorage.getItem('token');
 
     try {
+
+    }
+    catch(errorF) {
+
+    }
+
+    try {
         const res = (await axios.get("http://localhost:8080/user/" + userID)).data;
         setName(res.name);
         setEmail(res.email);

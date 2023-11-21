@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.freire.my_api.DTO.LoginDTO;
 import com.freire.my_api.model.UserModel;
 import com.freire.my_api.repository.UserRepository;
 
