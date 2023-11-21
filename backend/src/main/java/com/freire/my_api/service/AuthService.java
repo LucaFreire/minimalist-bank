@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -18,6 +19,7 @@ import com.freire.my_api.model.UserModel;
 
 import jakarta.security.auth.message.AuthException;
 
+@Service
 public class AuthService implements UserDetailsService {
 
     @Autowired
@@ -26,7 +28,7 @@ public class AuthService implements UserDetailsService {
     @Value("${JWT_SECRET}")
     private String secret;
 
-    @Value("${jwt.issuer}")
+    @Value("${JWT_ISSUER}")
     private String issuer;
 
     public String createToken(LoginDTO loginDTO) throws AuthException {
