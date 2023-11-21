@@ -50,9 +50,4 @@ public class UserController {
     public Optional<UserModel> GetById(@PathVariable String id) {
         return userService.GetById(id);
     }
-
-    @PostMapping("/login")
-    public String Login(@RequestBody LoginDTO loginDTO) {
-        return userService.Login(loginDTO);
-    }
 }

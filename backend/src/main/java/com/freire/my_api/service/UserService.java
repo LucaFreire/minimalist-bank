@@ -37,15 +37,6 @@ public class UserService {
         return this.userRepository.FindByDocument(document);
     }
 
-    public String Login(LoginDTO loginDTO) {
-
-        Optional<UserModel> loginData = this.userRepository.FindByEmail(loginDTO.getEmail());
-
-        if (loginData.isPresent())
-            return loginData.get().getId();
-        throw new IllegalAccessError();
-    }
-
     public void DeleteById(String id) {
         this.userRepository.deleteById(id);
     }
