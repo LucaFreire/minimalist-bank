@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 
 const handleGetUserData = useCallback(async () => {
 
-
     const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [balance, setBalance] = useState();
