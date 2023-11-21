@@ -1,5 +1,6 @@
 package com.freire.my_api.service;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class AuthService implements UserDetailsService {
     @Autowired
     private UserService userService;
 
-    @Value("${jwt.secret}")
+    @Value("${JWT_SECRET}")
     private String secret;
 
     @Value("${jwt.issuer}")
@@ -46,7 +47,7 @@ public class AuthService implements UserDetailsService {
         }
     }
 
-    public String validateToken(String token) {
+    public String validateToken(String token) throws IOException{
         try {
             final var anAlgorithm = Algorithm.HMAC256(secret);
             final var decoded = JWT.require(anAlgorithm)
@@ -56,7 +57,7 @@ public class AuthService implements UserDetailsService {
             final var anSubject = decoded.getSubject();
             return anSubject;
         } catch (Exception e) {
-            return "";
+            throw new IOException(e.getMessage());
         }
     }
 
