@@ -1,7 +1,7 @@
 package com.freire.my_api.service;
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,7 @@ public class AuthService implements UserDetailsService {
             final String aToken = JWT.create()
                     .withIssuer(issuer)
                     .withSubject(loginDTO.getEmail())
-                    .withExpiresAt(new Date(new Date(0).getTime() + 24 * 60 * 60 * 1000))
+                    .withExpiresAt(new Date(new Date().getTime() + 24 * 60 * 60 * 1000))
                     .sign(anAlgorithm);
             return aToken;
 

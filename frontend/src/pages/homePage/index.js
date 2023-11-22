@@ -8,7 +8,7 @@ import styles from "./style"
 
 export default function homePage(props) {
 
-    const [email, setEmail] = useState()
+    const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState()
     const [document, setDocument] = useState()
     const [balance, setBalance] = useState()
@@ -20,7 +20,7 @@ export default function homePage(props) {
     const handleGetUserData = useCallback(async () => {
 
         try {
-            const res = await axios.post("http://localhost:8080/user/token", token);
+            const res = await axios.post("http://localhost:8080/user/token", token, { headers: { "Authorization": "Bearer " + token } });
             const userData = res.data;
 
             console.log("ASDSADADs");
