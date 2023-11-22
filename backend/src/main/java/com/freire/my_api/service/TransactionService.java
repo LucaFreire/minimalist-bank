@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.freire.my_api.model.TransactionModel;
+import com.freire.my_api.model.UserModel;
 import com.freire.my_api.repository.TransactionRepository;
 
 @Service
@@ -21,6 +22,10 @@ public class TransactionService {
 
     public List<TransactionModel> GetAll() {
         return this.transactionRepository.findAll();
+    }
+
+    public List<TransactionModel> GetAllTransactions(UserModel user) {
+        return this.transactionRepository.GetAllTransactions(user);
     }
 
     public void DeleteById(String id) {

@@ -6,15 +6,15 @@ import registerPage from './src/pages/registerPage';
 import homePage from './src/pages/homePage';
 import historicPage from './src/pages/historicPage';
 import transferPage from './src/pages/transferPage';
-import { Provider } from 'react-redux';
-import { store } from "./src/store"
+// import { Provider } from 'react-redux';
+// import { store } from "./src/store"
 
 
 export default function App() {
   const Stack = createStackNavigator();
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <View style={styles.main}>
         <NavigationContainer>
           <Stack.Navigator>
@@ -61,7 +61,7 @@ export default function App() {
           </Stack.Navigator>
         </NavigationContainer>
       </View>
-    </Provider>
+    // </Provider>
   );
 }
 
