@@ -27,7 +27,8 @@ export default function homePage(props) {
             console.log(userData);
 
             setEmail(userData.email);
-            setEmail(userData.name);
+            setName(userData.name);
+            setBalance(userData.balance);
             setFullName(userData.fullName);
             setDocument(userData.document);
 

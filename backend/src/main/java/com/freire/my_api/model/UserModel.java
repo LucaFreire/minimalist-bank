@@ -1,7 +1,6 @@
 package com.freire.my_api.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
