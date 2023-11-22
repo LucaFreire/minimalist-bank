@@ -11,7 +11,6 @@ export default function historicPage(props) {
 
 
     const handleGetTransactions = useCallback(async () => {
-
         try {
             const res = await axios.post("http://localhost:8080/transaction/getAll/" + token);
             setTransaction(res.data)
@@ -19,7 +18,11 @@ export default function historicPage(props) {
             console.log(error);
         }
     })
-    
+
+    useEffect(() => {
+        handleGetTransactions
+    }, [])
+
     return (
         <>
             <ScrollView style={styles.main}>
@@ -28,7 +31,8 @@ export default function historicPage(props) {
                 </TouchableOpacity>
                 <View style={styles.container}>
                     <h3>Your Historic</h3>
-                    <HistoricCard />
+                    {/* <HistoricCard /> */}
+                    {transaction.length}
                 </View>
             </ScrollView>
         </>

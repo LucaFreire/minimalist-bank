@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,21 @@ public class TransactionController {
     @GetMapping("")
     public List<TransactionModel> GetAll() {
         return transactionService.GetAll();
+    }
+
+    @GetMapping("/getAll/{token}")
+    public List<TransactionModel> GetAllByToken(@PathVariable String token) throws IOException {
+
+        String email = authService.validateToken(token);
+        if(email.isBlank())
+            throw new IOException("jwt is not valid");
+
+        Optional<UserModel> user = userService.FindByEmail(email);
+
+        if(!user.isPresent())
+            throw new IOException("email is not valid");
+
+        return transactionService.GetAllTransactions(user.get());
     }
 
     @PostMapping("/transaction")

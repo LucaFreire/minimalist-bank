@@ -1,5 +1,6 @@
 package com.freire.my_api.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.freire.my_api.DTO.UserDTO;
 import com.freire.my_api.model.UserModel;
+import com.freire.my_api.service.AuthService;
 import com.freire.my_api.service.UserService;
 
 @RestController
@@ -21,6 +23,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AuthService authService;
 
     @GetMapping("")
     public List<UserModel> GetAll() {
@@ -35,17 +40,28 @@ public class UserController {
     }
 
     @GetMapping("/{email}")
-    public Optional<UserModel> GetByName(@PathVariable String email) {
-        return userService.FindByEmail(email);
+    public UserModel GetByName(@PathVariable String email) {
+        return userService.FindByEmail(email).get();
+    }
+
+    @PostMapping("/token")
+    public UserModel GetByToken(@RequestBody String token) throws IOException {
+        
+        String email = this.authService.validateToken(token);
+
+        if(email.isBlank())
+            throw new IOException("jwt is not valid");
+        
+        return userService.FindByEmail(email).get();
     }
 
     @GetMapping("/{document}")
-    public Optional<UserModel> GetByDocument(@PathVariable String document) {
-        return userService.FindByDocument(document);
+    public UserModel GetByDocument(@PathVariable String document) {
+        return userService.FindByDocument(document).get();
     }
 
     @GetMapping("/{id}")
-    public Optional<UserModel> GetById(@PathVariable String id) {
-        return userService.GetById(id);
+    public UserModel GetById(@PathVariable String id) {
+        return userService.GetById(id).get();
     }
 }

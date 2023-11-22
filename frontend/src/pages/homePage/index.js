@@ -2,6 +2,7 @@ import { TextInput, TouchableOpacity, View, Text, Pressable } from "react-native
 import { useCallback, useEffect, useState } from "react"
 import HeaderHome from "../../components/headerHome"
 import CurrencyData from "../../components/balanceComponent"
+import axios from "axios"
 
 import styles from "./style"
 
@@ -10,31 +11,40 @@ export default function homePage(props) {
     const [email, setEmail] = useState()
     const [fullName, setFullName] = useState()
     const [document, setDocument] = useState()
+    const [balance, setBalance] = useState()
+    const [name, setName] = useState()
 
 
-    // const handleGetUserData = useCallback(async () => {
+    const token = sessionStorage.getItem("token")
 
-    //     try {
-    //         const res = await axios.get("http://localhost:3030/user");
-    //         const userData = res.data;
+    const handleGetUserData = useCallback(async () => {
 
-    //         setEmail(userData.email);
-    //         setFullName(userData.fullName);
-    //         setDocument(userData.document);
+        try {
+            const res = await axios.post("http://localhost:8080/user/token", token);
+            const userData = res.data;
 
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // })
+            console.log("ASDSADADs");
+            console.log(userData);
 
-    // useEffect(() => {
-    //     handleGetUserData()
-    // }, [])
+            setEmail(userData.email);
+            setEmail(userData.name);
+            setFullName(userData.fullName);
+            setDocument(userData.document);
+
+        } catch (error) {
+            console.log("ZDFSDFDSF");
+            console.log(error);
+        }
+    })
+
+    useEffect(() => {
+        handleGetUserData()
+    }, [])
 
     return (
         <View style={styles.main}>
-            <HeaderHome name={"Lucas"} />
-            <CurrencyData user={"20000000"} />
+            <HeaderHome name={name} />
+            <CurrencyData user={balance} />
 
             <View style={styles.buttonsSection}>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
