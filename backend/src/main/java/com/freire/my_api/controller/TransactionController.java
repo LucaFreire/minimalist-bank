@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,7 +53,12 @@ public class TransactionController {
     }
 
     @PostMapping("/transaction")
-    public void Transaction(TransactionDTO transactionDTO) throws IOException {
+    public void Transaction(@RequestBody TransactionDTO transactionDTO) throws IOException {
+
+        System.out.println("transactionDTO" +transactionDTO);
+        System.out.println(transactionDTO.getToken());
+        System.out.println(transactionDTO.getPayeeAnyIdentifier());
+        System.out.println(transactionDTO.getValue());
 
         var email = authService.validateToken(transactionDTO.getToken());
         
@@ -71,6 +77,10 @@ public class TransactionController {
         } else {
             payee = userService.FindByDocument(payeeData);
         }
+
+        System.out.println("PAYEEEEE");
+        System.out.println(payee.get());
+        System.out.println("PAYEEEEE");
 
         if(!payee.isPresent())
             throw new IOException("payee's email or document is not valid");

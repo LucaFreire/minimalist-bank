@@ -8,25 +8,30 @@ export default function transferPage(props) {
 
     const [value, setValue] = useState();
     const [payee, setPayee] = useState();
-    const [isRequestDone, setIsRequestDone] = useState()
     const [requestError, setRequestError] = useState('')
 
     const userToken = sessionStorage.getItem("token")
 
     const handleTransaction = useCallback(async () => {
 
-        transactionDTO = {
-            token: userToken,
-            payeeAnyIdentifier: payee,
-            value: value
-        };
+        console.log("TRANSFER");
+        console.log(userToken);
 
         try {
-            const res = (await axios.post("http://localhost:8080/transaction/transaction", transactionDTO)).data;
+            const transactionDTO = {
+                token: userToken,
+                payeeAnyIdentifier: payee,
+                value: value
+            };
+
+            console.log(transactionDTO);
+
+            const res = await axios.post("http://localhost:8080/transaction/transaction", transactionDTO, { headers: { "Authorization": "Bearer " + userToken } });
+            console.log(res.data);
             props.navigation.navigate("home")
+
         } catch (error) {
-            isRequestDone(false)
-            setRequestError(error)
+            console.log(error);
         }
     });
 
@@ -39,12 +44,12 @@ export default function transferPage(props) {
             <View style={styles.component}>
                 <BalanceComponent />
                 <Text>Payee's information</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput onChangeText={e => setPayee(e)} style={styles.input}></TextInput>
 
                 <Text>Value</Text>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput onChangeText={e => setValue(e)} style={styles.input}></TextInput>
 
-                <TouchableOpacity onPress={() => handleTransaction} style={styles.transferButton} >
+                <TouchableOpacity onPress={() => handleTransaction()} style={styles.transferButton} >
                     <Text>Transfer</Text>
                 </TouchableOpacity>
 
