@@ -78,11 +78,10 @@ public class TransactionController {
             payee = userService.FindByDocument(payeeData);
         }
 
-        System.out.println("PAYEEEEE");
-        System.out.println(payee.get());
-        System.out.println("PAYEEEEE");
-
         if(!payee.isPresent())
+            throw new IOException("payee's email or document is not valid");
+
+        if(payee.get() == null)
             throw new IOException("payee's email or document is not valid");
 
         payee.get().AddMoney(transactionValue);
