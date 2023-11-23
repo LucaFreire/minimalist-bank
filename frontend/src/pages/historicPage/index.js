@@ -2,6 +2,7 @@ import { TextInput, TouchableOpacity, View, Text, Pressable, Image, ScrollView }
 import { useCallback, useEffect, useState } from "react"
 import styles from "./style"
 import HistoricCard from "../../components/historicCard"
+import axios from "axios"
 
 export default function historicPage(props) {
 
@@ -12,15 +13,16 @@ export default function historicPage(props) {
 
     const handleGetTransactions = useCallback(async () => {
         try {
-            const res = await axios.post("http://localhost:8080/transaction/getAll/" + token);
+            const res = await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token }});
             setTransaction(res.data)
+            console.log(transaction);
         } catch (error) {
             console.log(error);
         }
     })
 
     useEffect(() => {
-        handleGetTransactions
+        handleGetTransactions()
     }, [])
 
     return (

@@ -40,6 +40,7 @@ public class TransactionController {
     @GetMapping("/getAll/{token}")
     public List<TransactionModel> GetAllByToken(@PathVariable String token) throws IOException {
 
+        System.out.println("SDFSDFSDFSDFSDFSDFSDFSDF");
         String email = authService.validateToken(token);
         if(email.isBlank())
             throw new IOException("jwt is not valid");
@@ -77,9 +78,6 @@ public class TransactionController {
         } else {
             payee = userService.FindByDocument(payeeData);
         }
-
-        if(!payee.isPresent())
-            throw new IOException("payee's email or document is not valid");
 
         if(payee.get() == null)
             throw new IOException("payee's email or document is not valid");
