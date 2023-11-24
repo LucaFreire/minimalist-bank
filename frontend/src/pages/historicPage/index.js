@@ -7,16 +7,12 @@ import axios from "axios"
 export default function historicPage(props) {
 
     const [transaction, setTransaction] = useState([]);
-
     const token = sessionStorage.getItem('token')
-
 
     const handleGetTransactions = useCallback(async () => {
         try {
             await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token }}).then((res) => {
                 setTransaction(res.data);
-                
-            console.log(res.data);
             });
             
         } catch (error) {
@@ -30,7 +26,6 @@ export default function historicPage(props) {
 
     const renderCards = () => {
         return transaction.map((item, index) => {
-            console.log("item",item)
            return   <HistoricCard transactionData={item} key={index} />
         })
     }

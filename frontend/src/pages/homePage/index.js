@@ -1,30 +1,39 @@
 import { TextInput, TouchableOpacity, View, Text, Pressable } from "react-native"
 import { useCallback, useEffect, useState } from "react"
 import HeaderHome from "../../components/headerHome"
-import CurrencyData from "../../components/balanceComponent"
+import CurrencyData from "../../components/CurrencyData"
+
+import { ActivityIndicator, MD2Colors } from 'react-native-paper';
+
+
 import axios from "axios"
 
 import styles from "./style"
 
 export default function homePage(props) {
 
+    const Reload = (isOn = true) => (
+        <ActivityIndicator animating={isOn} color={MD2Colors.red800} />
+    );
+
     const [email, setEmail] = useState('')
     const [fullName, setFullName] = useState()
     const [document, setDocument] = useState()
     const [balance, setBalance] = useState()
     const [name, setName] = useState()
-    
-    
+
+
     const token = sessionStorage.getItem("token")
-    
+
     const handleGetUserData = useCallback(async () => {
-        
+
         try {
-            const res = await axios.post("http://localhost:8080/user/token", token, { headers: { "Authorization": "Bearer " + token } });
+            Reload(true)
+            const res = await axios.post("http://localhost:8080/user/token", token, { headers: { "Authorization": "Bearer " + token } }).then(Reload(false));
             const userData = res.data;
-            
+
             let fullName = res.data.name.split(" ")
-            
+
             setEmail(userData.email);
             setName(fullName[fullName.length - 1]);
             setBalance(userData.balance);
