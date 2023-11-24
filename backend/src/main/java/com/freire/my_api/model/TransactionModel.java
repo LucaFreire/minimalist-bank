@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.val;
 
 @Data
 @AllArgsConstructor
@@ -19,11 +20,14 @@ public class TransactionModel {
     private UserModel payee;
     @DBRef
     private UserModel payer;
+
+    private Double value;
     private LocalDate date;
 
-    public TransactionModel(UserModel payee, UserModel payer) {
+    public TransactionModel(UserModel payee, UserModel payer, Double value ) {
         this.payee = payee;
         this.payer = payer;
+        this.value = value;
         this.date = java.time.LocalDate.now();
     }
 

@@ -13,9 +13,12 @@ export default function historicPage(props) {
 
     const handleGetTransactions = useCallback(async () => {
         try {
-            const res = await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token }});
-            setTransaction(res.data)
-            console.log(transaction);
+            await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token }}).then((res) => {
+                setTransaction(res.data);
+                
+            console.log(res.data);
+            });
+            
         } catch (error) {
             console.log(error);
         }
@@ -25,6 +28,13 @@ export default function historicPage(props) {
         handleGetTransactions()
     }, [])
 
+    const renderCards = () => {
+        return transaction.map((item, index) => {
+            console.log("item",item)
+           return   <HistoricCard transactionData={item} key={index} />
+        })
+    }
+
     return (
         <>
             <ScrollView style={styles.main}>
@@ -33,7 +43,7 @@ export default function historicPage(props) {
                 </TouchableOpacity>
                 <View style={styles.container}>
                     <h3>Your Historic</h3>
-                    {/* <HistoricCard /> */}
+                    {renderCards()}
                     {transaction.length}
                 </View>
             </ScrollView>

@@ -85,7 +85,7 @@ public class TransactionController {
         payee.get().AddMoney(transactionValue);
         payer.SubtractMoney(transactionValue);
         
-        TransactionModel transactionModel = new TransactionModel(payee.get(), payer);
+        TransactionModel transactionModel = new TransactionModel(payee.get(), payer, transactionValue);
         
         userService.Update(payee.get());
         userService.Update(payer);
