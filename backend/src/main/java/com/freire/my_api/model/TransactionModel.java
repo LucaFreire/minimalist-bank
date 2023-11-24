@@ -19,13 +19,15 @@ public class TransactionModel {
     private UserModel payee;
     @DBRef
     private UserModel payer;
-    private LocalDate  date;
-
+    private LocalDate date;
 
     public TransactionModel(UserModel payee, UserModel payer) {
         this.payee = payee;
         this.payer = payer;
         this.date = java.time.LocalDate.now();
+    }
+
+    public TransactionModel() {
     }
 
 }

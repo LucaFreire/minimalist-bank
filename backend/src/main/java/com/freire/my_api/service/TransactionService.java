@@ -25,7 +25,7 @@ public class TransactionService {
     }
 
     public List<TransactionModel> GetAllTransactions(UserModel user) {
-        return this.transactionRepository.GetAllTransactions(user);
+        return this.transactionRepository.GetAllTransactions(user.getId());
     }
 
     public void DeleteById(String id) {
