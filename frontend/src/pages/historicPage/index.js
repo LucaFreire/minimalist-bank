@@ -9,12 +9,14 @@ export default function historicPage(props) {
     const [transaction, setTransaction] = useState([]);
     const token = sessionStorage.getItem('token')
 
+    const userName = "lucas freire";
+
     const handleGetTransactions = useCallback(async () => {
         try {
-            await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token }}).then((res) => {
+            await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token } }).then((res) => {
                 setTransaction(res.data);
             });
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -26,7 +28,7 @@ export default function historicPage(props) {
 
     const renderCards = () => {
         return transaction.map((item, index) => {
-           return   <HistoricCard transactionData={item} key={index} />
+            return <HistoricCard transactionData={item} key={index} />
         })
     }
 
@@ -39,7 +41,6 @@ export default function historicPage(props) {
                 <View style={styles.container}>
                     <h3>Your Historic</h3>
                     {renderCards()}
-                    {transaction.length}
                 </View>
             </ScrollView>
         </>
