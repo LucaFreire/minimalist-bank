@@ -2,7 +2,7 @@ import { useState } from "react"
 import { View, Text, StyleSheet, Pressable } from "react-native"
 
 
-export default function CurrencyData({ user }) {
+export default function CurrencyData({ balance }) {
 
     const [show, setShow] = useState(false)
 
@@ -10,7 +10,7 @@ export default function CurrencyData({ user }) {
         setShow(!show)
     }
 
-    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency:"BRL" }).format(user)
+    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency:"BRL" }).format(balance)
 
     return (
         <View style={styles.main}>

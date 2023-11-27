@@ -38,7 +38,7 @@ export default function HomePage(props) {
     return (
         <View style={styles.main}>
             <HeaderHome name={lastName} />
-            <CurrencyData user={balance} />
+            <CurrencyData balance={balance} />
 
             <View style={styles.buttonsSection}>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>

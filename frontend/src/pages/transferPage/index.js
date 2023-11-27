@@ -3,9 +3,12 @@ import { useCallback, useState } from "react"
 import styles from "./style"
 import CurrencyData from "../../components/CurrencyData"
 import axios from "axios"
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function transferPage(props) {
 
+    const dispatch = useDispatch();
+    const { balance } = useSelector((state) => state.user);
     const [value, setValue] = useState();
     const [payee, setPayee] = useState();
     const [requestError, setRequestError] = useState('')
@@ -13,18 +16,12 @@ export default function transferPage(props) {
     const userToken = sessionStorage.getItem("token")
 
     const handleTransaction = useCallback(async () => {
-
-        console.log("TRANSFER");
-        console.log(userToken);
-
         try {
             const transactionDTO = {
                 token: userToken,
                 payeeAnyIdentifier: payee,
                 value: value
             };
-
-            console.log(transactionDTO);
 
             const res = await axios.post("http://localhost:8080/transaction/transaction", transactionDTO, { headers: { "Authorization": "Bearer " + userToken } });
             console.log(res.data);
@@ -42,7 +39,7 @@ export default function transferPage(props) {
             </TouchableOpacity>
 
             <View style={styles.component}>
-                <CurrencyData />
+                <CurrencyData balance={balance} />
                 <Text>Payee's information</Text>
                 <TextInput onChangeText={e => setPayee(e)} style={styles.input}></TextInput>
 
