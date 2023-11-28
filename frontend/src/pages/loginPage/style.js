@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         gap: '10px',
-        backgroundColor: '#251336'
+        backgroundColor: '#11111F'
     },
     input: {
         padding: "8px",
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'purple',
+        backgroundColor: '#41B6E6',
     },
     signInButton: {
         alignItems: 'center',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'purple',
+        backgroundColor: '#41B6E6',
     },
     text: {
         fontSize: 16,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     linkButton: {
         paddingLeft: '9px',
         width: 'auto',
-        color: "purple",
+        color: "#41B6E6",
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -63,6 +63,10 @@ const styles = StyleSheet.create({
         display: "flex",
         justifyContent: "center",
         gap: "70px"
+    },
+    logo: {
+        width: '250px',
+        height: '150px'
     }
 
 });

@@ -1,4 +1,4 @@
-import { TextInput, TouchableOpacity, View, Text, Pressable } from "react-native"
+import { TextInput, TouchableOpacity, Image, View, Text, Pressable } from "react-native"
 import { useCallback, useState } from "react"
 
 import axios from "axios"
@@ -22,7 +22,7 @@ export default function loginPage(props) {
         try {
             const res = await axios.post("http://localhost:8080/auth/login", loginData);
             console.log(res);
-            if(res.data == null)
+            if (res.data == null)
                 return;
             sessionStorage.setItem("token", res.data);
             props.navigation.navigate('home');
@@ -33,7 +33,7 @@ export default function loginPage(props) {
 
     return (
         <View style={styles.main}>
-
+            <Image source={require("../../../assets/logo.png")} style={styles.logo} />
             <Text style={styles.label}>Email</Text>
             <TextInput
                 onChangeText={e => setEmail(e)}

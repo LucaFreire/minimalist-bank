@@ -9,7 +9,7 @@ export default function historicPage(props) {
     const [transaction, setTransaction] = useState([]);
     const token = sessionStorage.getItem('token')
 
-    const userName = "lucas freire";
+    const userName = "lucas freire"; // GEt the user's name
 
     const handleGetTransactions = useCallback(async () => {
         try {
