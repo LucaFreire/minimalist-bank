@@ -20,7 +20,6 @@ export default function HomePage(props) {
             const res = await axios.post("http://localhost:8080/user/token", token, { headers: { "Authorization": "Bearer " + token } });
 
             let fullName = res.data.name.split(" ");
-            console.log('Response Data:', res.data);
             dispatch(setUserData(res.data));
             setLastName(fullName[fullName.length - 1]);
         } catch (error) {
@@ -42,10 +41,10 @@ export default function HomePage(props) {
 
             <View style={styles.buttonsSection}>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
-                    <Text style={{color: "white", fontSize:28}}>Historic</Text>
+                    <Text style={{ color: "white", fontSize: 28, fontWeight: 700 }}>Historic</Text>
                 </Pressable>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('transfer')}>
-                    <Text style={{color: "white", fontSize:28}}>Transfer</Text>
+                    <Text style={{ color: "white", fontSize: 28, fontWeight: 700 }}>Transfer</Text>
                 </Pressable>
             </View>
         </View>

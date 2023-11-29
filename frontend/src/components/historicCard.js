@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     main_red: {
         gap: "10px",
         padding: "15px",
-        backgroundColor: "red",
+        backgroundColor: "#FA5C5C",
         flexDirection: "column",
         marginTop: "30px",
         height: "25%",

@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: "25px",
         left: "10px",
-        color: "black"
+        color: "black",
+        textTransform: 'capitalize'
     }
 })
