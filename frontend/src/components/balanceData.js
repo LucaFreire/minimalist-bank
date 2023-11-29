@@ -2,7 +2,7 @@ import { useState } from "react"
 import { View, Text, StyleSheet, Pressable } from "react-native"
 
 
-export default function CurrencyData({ balance }) {
+export default function BalanceData({ balance }) {
 
     const [show, setShow] = useState(false)
 

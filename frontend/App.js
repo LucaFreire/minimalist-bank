@@ -23,16 +23,17 @@ export default function App() {
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='login' component={loginPage}
+              name='register' component={registerPage}
             />
-
+            
             <Stack.Screen
               options={{
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='register' component={registerPage}
+              name='login' component={loginPage}
             />
+
 
             <Stack.Screen
               options={{

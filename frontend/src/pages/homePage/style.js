@@ -4,10 +4,9 @@ const styles = StyleSheet.create({
     main: {
         flex: 1,
         alignItems: "center",
-        backgroundColor: '#251336'
+        backgroundColor: '#11111'
     },
     buttonsSection: {
-        backgroundColor: "gray",
         flexDirection: "column",
         justifyContent: "space-around",
         alignItems: "center",

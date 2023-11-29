@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text, Pressable, ActivityIndicator } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserData } from '../../store/slice';
 import axios from 'axios';
 import styles from './style';
 import HeaderHome from '../../components/headerHome';
-import CurrencyData from '../../components/currencyData';
+import BalanceData from '../../components/balanceData';
 
 export default function HomePage(props) {
     const dispatch = useDispatch();
@@ -38,7 +38,7 @@ export default function HomePage(props) {
     return (
         <View style={styles.main}>
             <HeaderHome name={lastName} />
-            <CurrencyData balance={balance} />
+            <BalanceData balance={balance} />
 
             <View style={styles.buttonsSection}>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>

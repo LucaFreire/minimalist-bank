@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const style = StyleSheet.create({
     main: {
-        backgroundColor: '#251336'
+        backgroundColor: '#11111F',
     },
     inputContent: {
         display: "flex",
@@ -11,7 +11,7 @@ const style = StyleSheet.create({
         width: "100%",
         height: "100%",
         gap: '10px',
-        backgroundColor: '#251336'
+        backgroundColor: '#11111F',
     },
     signInButton: {
         alignItems: 'center',
@@ -21,7 +21,7 @@ const style = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: 'purple',
+        backgroundColor: '#41B6E6',
     },
     arrowStyle: {
         height: "15px",
@@ -39,12 +39,8 @@ const style = StyleSheet.create({
     },
     input: {
         padding: "8px",
-        borderColor: "gray",
         width: "70%",
-        borderWidth: 1,
-        borderRadius: 10,
-        padding: 10,
-        color: 'white'
+        backgroundColor: '#11111F'
     }
 
 });

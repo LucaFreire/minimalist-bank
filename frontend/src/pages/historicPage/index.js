@@ -2,6 +2,7 @@ import { TextInput, TouchableOpacity, View, Text, Pressable, Image, ScrollView }
 import { useCallback, useEffect, useState } from "react"
 import styles from "./style"
 import HistoricCard from "../../components/historicCard"
+import { Icon } from 'react-native-paper';
 import axios from "axios"
 
 export default function historicPage(props) {
@@ -36,7 +37,11 @@ export default function historicPage(props) {
         <>
             <ScrollView style={styles.main}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('home')}>
-                    <Image source={require("../../../assets/arrow.png")} style={styles.arrowStyle} />
+                    <Icon
+                        source="arrow-left"
+                        color="white"
+                        size={20}
+                    />
                 </TouchableOpacity>
                 <View style={styles.container}>
                     <h3>Your Historic</h3>

@@ -1,9 +1,9 @@
 import { TextInput, View, Text, Pressable, Button, ScrollView, TouchableOpacity, Image } from "react-native"
 import { useCallback, useState } from "react"
 import styles from "./style"
-import CurrencyData from "../../components/CurrencyData"
 import axios from "axios"
 import { useSelector, useDispatch } from 'react-redux';
+import BalanceData from "../../components/balanceData";
 
 export default function transferPage(props) {
 
@@ -39,7 +39,7 @@ export default function transferPage(props) {
             </TouchableOpacity>
 
             <View style={styles.component}>
-                <CurrencyData balance={balance} />
+                <BalanceData balance={balance} />
                 <Text>Payee's information</Text>
                 <TextInput onChangeText={e => setPayee(e)} style={styles.input}></TextInput>
 

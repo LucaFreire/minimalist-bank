@@ -1,7 +1,10 @@
-import { Button, View, TextInput, Text, Pressable, TouchableOpacity, Image } from "react-native";
+import { Button, View, Text, Pressable, TouchableOpacity, Image } from "react-native";
 import { useCallback, useState } from "react";
 import style from "./style";
 import axios from "axios";
+import { Icon } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
+
 
 export default function registerPage(props) {
 
@@ -37,45 +40,81 @@ export default function registerPage(props) {
     return (
         <View style={style.main}>
             <TouchableOpacity onPress={() => props.navigation.navigate('login')}>
-                <Image source={require("../../../assets/arrow.png")} style={style.arrowStyle} />
+                <Icon
+                    source="arrow-left"
+                    color="white"
+                    size={30}
+                />
             </TouchableOpacity>
             <View style={style.inputContent}>
 
-                <Text style={style.text}>Email</Text>
-                <TextInput
-                    style={style.input}
-                    onChangeText={e => setEmail(e)}
-                />
+                <Text style={style.text}>Register</Text>
 
-                <Text style={style.text}>Full Name</Text>
                 <TextInput
                     style={style.input}
                     onChangeText={e => setFullName(e)}
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                    label="Full name"
                 />
 
-                <Text style={style.text}>Document</Text>
+                <TextInput
+                    style={style.input}
+                    onChangeText={e => setEmail(e)}
+                    label="Email"
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                />
+
                 <TextInput
                     style={style.input}
                     onChangeText={e => setDocument(e)}
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                    label="Document"
                 />
 
-                <Text style={style.text}>BirthDate</Text>
                 <TextInput
                     style={style.input}
                     onChangeText={e => setBirthDate(e)}
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                    label="BirthDate"
                 />
 
-                <Text style={style.text}>Password</Text>
                 <TextInput
                     style={style.input}
                     onChangeText={e => setPassword(e)}
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                    label="Password"
                     secureTextEntry={true}
                 />
 
-                <Text style={style.text}>Confirm Password</Text>
                 <TextInput
                     style={style.input}
                     onChangeText={e => setConfirmPassword(e)}
+                    selectionColor="#41B6E6"
+                    activeOutlineColor="#41B6E6"
+                    outlineColor="#41B6E6"
+                    underlineColor="#41B6E6"
+                    activeUnderlineColor="#41B6E6"
+                    label="Confirm Password"
                     secureTextEntry={true}
                 />
 
