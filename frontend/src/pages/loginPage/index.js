@@ -1,5 +1,6 @@
-import { TextInput, TouchableOpacity, Image, View, Text, Pressable } from "react-native"
+import { TouchableOpacity, Image, View, Text, Pressable } from "react-native"
 import { useCallback, useState } from "react"
+import { TextInput } from 'react-native-paper';
 
 import axios from "axios"
 import styles from "./style"
@@ -34,18 +35,26 @@ export default function loginPage(props) {
     return (
         <View style={styles.main}>
             <Image source={require("../../../assets/logo.png")} style={styles.logo} />
-            <Text style={styles.label}>Email</Text>
             <TextInput
-                onChangeText={e => setEmail(e)}
                 style={styles.input}
-                value={email}
+                onChangeText={e => setEmail(e)}
+                label="Email"
+                selectionColor="#41B6E6"
+                activeOutlineColor="#41B6E6"
+                outlineColor="#41B6E6"
+                underlineColor="#41B6E6"
+                activeUnderlineColor="#41B6E6"
             />
 
-            <Text style={styles.label}>Password</Text>
             <TextInput
                 onChangeText={e => setPassword(e)}
                 style={styles.input}
-                value={password}
+                label="Password"
+                selectionColor="#41B6E6"
+                activeOutlineColor="#41B6E6"
+                outlineColor="#41B6E6"
+                underlineColor="#41B6E6"
+                activeUnderlineColor="#41B6E6"
                 secureTextEntry={true}
             />
 

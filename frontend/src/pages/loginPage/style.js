@@ -12,13 +12,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#11111F'
     },
     input: {
-        padding: "8px",
-        borderColor: "gray",
         width: "70%",
-        borderWidth: 1,
-        borderRadius: 10,
         padding: 10,
-        color: 'white'
+        backgroundColor: '#11111F'
     },
     label: {
         paddingTop: "15px",
