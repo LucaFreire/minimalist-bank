@@ -8,7 +8,7 @@ export default function HeaderHome({ name }) {
                 <Text style={styles.headerText}>Welcome, {name}</Text>
             </View>
             <View style={{justifyContent: "center", padding: "20px"}}>
-                <Text>Logout</Text>
+                <Text style={{fontWeight: 700, backgroundColor: '#41B6E6', borderRadius: '15px', padding: '5px', color: 'white'}} >Logout</Text>
             </View>
         </View>
     )

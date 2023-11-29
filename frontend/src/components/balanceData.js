@@ -55,7 +55,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         fontSize: "40px",
         color: "white",
-        marginTop: '10vh'
+        marginTop: '10vh',
+        fontWeight: 700
     },
     container: {
         flexDirection: "row",
