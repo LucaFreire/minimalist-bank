@@ -1,4 +1,4 @@
-import { Button, View, Text, Pressable, TouchableOpacity, Image } from "react-native";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import { useCallback, useState } from "react";
 import style from "./style";
 import axios from "axios";
@@ -11,7 +11,6 @@ export default function registerPage(props) {
     const [email, setEmail] = useState();
     const [fullName, setFullName] = useState();
     const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
     const [document, setDocument] = useState();
 
     const [birthDate, setBirthDate] = useState();
@@ -39,7 +38,7 @@ export default function registerPage(props) {
 
     return (
         <View style={style.main}>
-            <TouchableOpacity onPress={() => props.navigation.navigate('login')}>
+            <TouchableOpacity style={{ width: '30px', padding: '10px' }} onPress={() => props.navigation.navigate('login')}>
                 <Icon
                     source="arrow-left"
                     color="white"
@@ -103,18 +102,6 @@ export default function registerPage(props) {
                     underlineColor="#41B6E6"
                     activeUnderlineColor="#41B6E6"
                     label="Password"
-                    secureTextEntry={true}
-                />
-
-                <TextInput
-                    style={style.input}
-                    onChangeText={e => setConfirmPassword(e)}
-                    selectionColor="#41B6E6"
-                    activeOutlineColor="#41B6E6"
-                    outlineColor="#41B6E6"
-                    underlineColor="#41B6E6"
-                    activeUnderlineColor="#41B6E6"
-                    label="Confirm Password"
                     secureTextEntry={true}
                 />
 

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { View, Text, StyleSheet, Pressable } from "react-native"
+import { Icon } from "react-native-paper"
 
 
 export default function BalanceData({ balance }) {
@@ -10,22 +11,27 @@ export default function BalanceData({ balance }) {
         setShow(!show)
     }
 
-    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency:"BRL" }).format(balance)
+    let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency: "BRL" }).format(balance)
 
     return (
         <View style={styles.main}>
             <View style={styles.container}>
                 <View>
-                    <Text style={styles.headerText}>Your current balance: R$</Text>
+                    <Text></Text>
                 </View>
                 <View>
-                    <Pressable style={{backgroundColor: "gray"}} onPress={toggleShow}>
-                        <Text style={styles.headerText}>{show ? "Hide" : "Show"}</Text>
+                    <Pressable onPress={toggleShow}>
+                        <Icon
+                            style={{ padding: '20px' }}
+                            size={40}
+                            color='white'
+                            source={show ? "eye" : "eye-off"}
+                        />
                     </Pressable>
                 </View>
             </View>
             <View style={{ width: '100%', justifyContent: "center", alignItems: "center" }}>
-                <Text style={styles.currencyText}>{show ? money : "* * *"}</Text>
+                <Text style={styles.currencyText}>{show ? "R$ " + money : "* * *"}</Text>
             </View>
         </View>
     )

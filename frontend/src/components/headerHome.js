@@ -25,11 +25,11 @@ const styles = StyleSheet.create({
         height: "70px",
         width: "94%",
         borderRadius: '15px',
-        backgroundColor: 'gray',
+        backgroundColor: 'white',
     },
     headerText: {
         fontSize: "25px",
         left: "10px",
-        color: "white"
+        color: "black"
     }
 })

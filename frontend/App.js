@@ -23,9 +23,9 @@ export default function App() {
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='register' component={registerPage}
+              name='home' component={homePage}
             />
-            
+
             <Stack.Screen
               options={{
                 headerTransparent: true,
@@ -33,15 +33,17 @@ export default function App() {
               }}
               name='login' component={loginPage}
             />
-
+            
 
             <Stack.Screen
               options={{
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='home' component={homePage}
+              name='register' component={registerPage}
             />
+
+
 
             <Stack.Screen
               options={{
@@ -68,7 +70,6 @@ export default function App() {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    height: "100%",
-    backgroundColor: '#251336'
+    height: "100%"
   }
 });

@@ -42,10 +42,10 @@ export default function HomePage(props) {
 
             <View style={styles.buttonsSection}>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
-                    <Text>Historic</Text>
+                    <Text style={{color: "white", fontSize:28}}>Historic</Text>
                 </Pressable>
                 <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('transfer')}>
-                    <Text>Transfer</Text>
+                    <Text style={{color: "white", fontSize:28}}>Transfer</Text>
                 </Pressable>
             </View>
         </View>
