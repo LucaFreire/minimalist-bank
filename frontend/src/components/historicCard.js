@@ -1,15 +1,17 @@
 import { View, Text, StyleSheet } from "react-native"
-
+import { useSelector } from 'react-redux';
 
 export default function HistoricCard({ transactionData }) {
 
+    const { name } = useSelector((state) => state.user);
+
     let money = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency: "BRL" }).format(transactionData.value)
-    const userName = "lucas freire";
+
     return (
-        <View style={transactionData.payer.name == userName ? styles.main_red : styles.main_green}>
-            <Text style={transactionData.payer.name == userName ? styles.textRed : styles.textGreen}>R$ {money}</Text>
+        <View style={transactionData.payer.name == name ? styles.main_red : styles.main_green}>
+            <Text style={transactionData.payer.name == name ? styles.textRed : styles.textGreen}>R$ {money}</Text>
             <Text style={styles.text}>Date: {transactionData.date}</Text>
-            <Text style={styles.text}>{transactionData.payer.name == userName ? "To" : "From"}: {transactionData.payer.name == userName ? transactionData.payee.name : transactionData.payer.name} </Text>
+            <Text style={styles.text}>{transactionData.payer.name == name ? "To" : "From"}: {transactionData.payer.name == name ? transactionData.payee.name : transactionData.payer.name} </Text>
         </View>
     )
 }
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
     text: {
         color: "black",
         fontSize: 20,
-        fontWeight: 500
+        fontWeight: 500,
+        textTransform: 'capitalize'
     },
     textRed: {
         color: "red",
@@ -52,4 +55,3 @@ const styles = StyleSheet.create({
         fontWeight: 500
     }
 })
-// #41B6E6
