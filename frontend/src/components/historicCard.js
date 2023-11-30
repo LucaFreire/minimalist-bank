@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         flexDirection: "column",
         marginTop: "30px",
-        height: "20%",
+        height: "150px",
         width: "85%",
         borderRadius: "15px"
     },
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         backgroundColor: "white",
         marginTop: "30px",
-        height: "20%",
+        height: "150px",
         width: "85%",
         borderRadius: "15px"
     },

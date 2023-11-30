@@ -15,6 +15,12 @@ const userSlice = createSlice({
       state.document = document !== undefined ? document : state.document;
       state.name = name !== undefined ? name : state.name;
       state.email = email !== undefined ? email : state.email;
+    },
+    verifySession: () => {
+      let token = sessionStorage.getItem('token')
+      if(token == null)
+        return false;
+      return true;
     }
   }
 });

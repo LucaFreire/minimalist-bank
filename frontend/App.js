@@ -23,16 +23,16 @@ export default function App() {
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='historic' component={historicPage}
+              name='login' component={loginPage}
             />
+
             <Stack.Screen
               options={{
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='login' component={loginPage}
+              name='historic' component={historicPage}
             />
-
 
             <Stack.Screen
               options={{
@@ -41,9 +41,7 @@ export default function App() {
               }}
               name='home' component={homePage}
             />
-
-
-
+            
             <Stack.Screen
               options={{
                 headerTransparent: true,
