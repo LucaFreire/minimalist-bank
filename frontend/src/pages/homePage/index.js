@@ -11,7 +11,7 @@ export default function HomePage(props) {
     const dispatch = useDispatch();
     const { balance, document, name, email } = useSelector((state) => state.user);
 
-    const [lastName, setLastName] = useState('');
+    const [lastName, setLastName] = useState('Desconhicido');
 
     const token = sessionStorage.getItem('token');
 
@@ -30,9 +30,6 @@ export default function HomePage(props) {
     useEffect(() => {
         handleGetUserData();
     }, [handleGetUserData]);
-
-
-    console.log('Redux Data:', { balance, document, name, email });
 
     return (
         <View style={styles.main}>

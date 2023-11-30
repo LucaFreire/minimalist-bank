@@ -36,15 +36,15 @@ export default function historicPage(props) {
     return (
         <>
             <ScrollView style={styles.main}>
-                <TouchableOpacity onPress={() => props.navigation.navigate('home')}>
+                <TouchableOpacity style={{ width: '30px', padding: '10px' }} onPress={() => props.navigation.navigate('home')}>
                     <Icon
                         source="arrow-left"
                         color="white"
-                        size={20}
+                        size={30}
                     />
                 </TouchableOpacity>
                 <View style={styles.container}>
-                    <h3>Your Historic</h3>
+                    <Text style={{ fontSize: 28, fontWeight: 700, color: 'white' }}>Your Historic</Text>
                     {renderCards()}
                 </View>
             </ScrollView>

@@ -40,6 +40,7 @@ export default function BalanceData({ balance }) {
 
 const styles = StyleSheet.create({
     main: {
+        padding: '10px',
         flexDirection: "column",
         alignContent: 'center',
         marginTop: "10px",
