@@ -31,7 +31,7 @@ export default function App() {
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='historic' component={historicPage}
+              name='register' component={registerPage}
             />
 
             <Stack.Screen
@@ -41,13 +41,13 @@ export default function App() {
               }}
               name='home' component={homePage}
             />
-            
+
             <Stack.Screen
               options={{
                 headerTransparent: true,
                 headerShown: false
               }}
-              name='register' component={registerPage}
+              name='historic' component={historicPage}
             />
 
             <Stack.Screen

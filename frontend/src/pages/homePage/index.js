@@ -11,7 +11,7 @@ export default function HomePage(props) {
     const dispatch = useDispatch();
     const { balance, document, name, email } = useSelector((state) => state.user);
 
-    const [lastName, setLastName] = useState('Desconhicido');
+    const [lastName, setLastName] = useState(' . . . ');
 
     const token = sessionStorage.getItem('token');
 
