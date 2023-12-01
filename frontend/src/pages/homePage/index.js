@@ -9,7 +9,7 @@ import BalanceData from '../../components/balanceData';
 
 export default function HomePage(props) {
     const dispatch = useDispatch();
-    const { balance, document, name, email } = useSelector((state) => state.user);
+    const { balance } = useSelector((state) => state.user);
 
     const [lastName, setLastName] = useState(' . . . ');
 

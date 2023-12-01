@@ -1,4 +1,4 @@
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { useCallback, useState } from "react";
 import style from "./style";
 import axios from "axios";
@@ -105,9 +105,9 @@ export default function registerPage(props) {
                     secureTextEntry={true}
                 />
 
-                <Pressable onPress={() => handleRegister()} style={style.signInButton}>
+                <TouchableOpacity onPress={() => handleRegister()} style={style.signInButton}>
                     <Text style={style.text}>Sign In</Text>
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     )
