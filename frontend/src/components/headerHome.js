@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet } from "react-native"
-
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 
 export default function HeaderHome({ name }) {
     return (
@@ -7,9 +6,9 @@ export default function HeaderHome({ name }) {
             <View style={{justifyContent: "center"}}>
                 <Text style={styles.headerText}>Welcome, {name}</Text>
             </View>
-            <View style={{justifyContent: "center", padding: "20px"}}>
-                <Text style={{fontWeight: 700, backgroundColor: '#41B6E6', borderRadius: '15px', padding: '5px', color: 'white'}} >Logout</Text>
-            </View>
+            <TouchableOpacity onPress={() => name.navigation.navigate('home')} style={{justifyContent: "center", padding: "20px"}}>
+                <Text style={{fontWeight: 700, backgroundColor: '#41B6E6', borderRadius: '15px', padding: '5px', color: 'white'}}>Logout</Text>
+            </TouchableOpacity>
         </View>
     )
 }

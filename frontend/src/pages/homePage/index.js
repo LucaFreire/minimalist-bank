@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserData } from '../../store/slice';
 import axios from 'axios';
@@ -37,12 +37,12 @@ export default function HomePage(props) {
             <BalanceData balance={balance} />
 
             <View style={styles.buttonsSection}>
-                <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
+                <TouchableOpacity style={styles.buttons} onPress={() => props.navigation.navigate('historic')}>
                     <Text style={{ color: "white", fontSize: 28, fontWeight: 700 }}>Historic</Text>
-                </Pressable>
-                <Pressable style={styles.buttons} onPress={() => props.navigation.navigate('transfer')}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.buttons} onPress={() => props.navigation.navigate('transfer')}>
                     <Text style={{ color: "white", fontSize: 28, fontWeight: 700 }}>Transfer</Text>
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     );

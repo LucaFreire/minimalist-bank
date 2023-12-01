@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { View, Text, StyleSheet, Pressable } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native"
 import { Icon } from "react-native-paper"
 
 
@@ -20,14 +20,14 @@ export default function BalanceData({ balance }) {
                     <Text></Text>
                 </View>
                 <View>
-                    <Pressable onPress={toggleShow}>
+                    <TouchableOpacity onPress={toggleShow}>
                         <Icon
                             style={{ padding: '20px' }}
                             size={40}
                             color='white'
                             source={show ? "eye" : "eye-off"}
                         />
-                    </Pressable>
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={{ width: '100%', justifyContent: "center", alignItems: "center" }}>
