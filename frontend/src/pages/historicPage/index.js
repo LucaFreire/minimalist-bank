@@ -4,20 +4,22 @@ import styles from "./style"
 import HistoricCard from "../../components/historicCard"
 import { Icon } from 'react-native-paper';
 import axios from "axios"
+import { ActivityIndicator } from 'react-native-paper';
 
 export default function historicPage(props) {
 
     const [transaction, setTransaction] = useState([]);
     const token = sessionStorage.getItem('token')
-
-    const userName = "lucas freire"; // GEt the user's name
+    const [loading, setLoading] = useState(false);
 
     const handleGetTransactions = useCallback(async () => {
+
         try {
+            setLoading(true);
             await axios.get("http://localhost:8080/transaction/getAll/" + token, { headers: { "Authorization": "Bearer " + token } }).then((res) => {
                 setTransaction(res.data);
+                setLoading(false);
             });
-
         } catch (error) {
             console.log(error);
         }
@@ -45,6 +47,7 @@ export default function historicPage(props) {
                 </TouchableOpacity>
                 <View style={styles.container}>
                     <Text style={{ fontSize: 28, fontWeight: 700, color: 'white' }}>Your Historic</Text>
+                    <ActivityIndicator animating={loading} color={"#41B6E6"} size={"large"} />
                     {renderCards()}
                 </View>
             </ScrollView>
