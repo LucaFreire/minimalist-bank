@@ -1,1 +1,1 @@
-# minimalist_bank
+# minimalist-bank
